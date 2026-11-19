@@ -27,6 +27,9 @@
 .footer{border-top:1px solid var(--line);padding:48px 6vw 24px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}.footer-logo{width:145px;height:58px;object-fit:contain;object-position:left}.footer p,.footer a{font-size:10px;color:var(--muted);line-height:2}.footer h4{font-size:9px;letter-spacing:.2em;color:var(--gold);font-weight:500}.copyright{grid-column:1/-1;border-top:1px solid var(--line);padding-top:20px;color:#766f65;font-size:9px}
 .menu-overlay{display:none;position:fixed;inset:0;background:#080808f8;z-index:20;padding:25px 7vw}.menu-overlay.open{display:block}.overlay-top{display:flex;justify-content:space-between;align-items:center}.overlay-links{display:flex;flex-direction:column;gap:22px;margin-top:12vh}.overlay-links a{font:500 43px 'Cormorant Garamond',serif}
 .whatsapp{position:fixed;bottom:20px;right:20px;background:var(--gold);color:#100e0b;padding:14px 18px;font-size:9px;letter-spacing:.13em;z-index:8}
+
+.auth-backdrop{display:none;position:fixed;inset:0;background:#000c;z-index:50;align-items:center;justify-content:center;padding:18px}.auth-backdrop.open{display:flex}.auth-panel{position:relative;width:min(100%,440px);max-height:92vh;overflow:auto;background:#111;border:1px solid #4b4030;padding:38px 30px 28px;box-shadow:0 20px 80px #000}.auth-close{position:absolute;right:17px;top:14px;background:none;border:0;color:var(--ivory);font-size:18px}.auth-panel h2{font:500 43px 'Cormorant Garamond',serif;margin:12px 0 4px}.auth-intro,.auth-note{color:var(--muted);font-size:10px;line-height:1.8}.auth-tabs{display:flex;gap:22px;border-bottom:1px solid var(--line);margin:25px 0 18px}.auth-tab{background:none;border:0;color:#8f877b;padding:0 0 12px;font-size:9px;letter-spacing:.15em}.auth-tab.active{color:var(--gold);border-bottom:1px solid var(--gold)}.auth-panel label{display:block;color:#c9bda9;font-size:9px;margin:14px 0 7px;letter-spacing:.1em}.auth-panel input{width:100%;background:#080808;border:1px solid #3b342b;color:var(--ivory);padding:14px;font:12px Montserrat,Arial}.auth-submit{width:100%;margin-top:20px}.auth-forgot{display:block;margin:15px auto 0;background:none;border:0;color:var(--gold);font-size:10px}.auth-message{min-height:18px;color:var(--gold);font-size:10px;line-height:1.6}.auth-note{border-top:1px solid var(--line);padding-top:13px;margin-top:16px}
+
 @media(max-width:800px){.nav{display:none}.hamb{display:inline-block}.header{height:70px;padding:0 5vw}.logo{width:132px;height:54px}.hero{height:660px;min-height:0;background-position:60% center}.categories{grid-template-columns:1fr}.category{height:350px}.products{grid-template-columns:repeat(2,1fr);gap:23px 11px}.product-photo{height:275px}.story{grid-template-columns:1fr}.story-image{height:360px}.section{padding:68px 5vw}.footer{grid-template-columns:1fr 1fr}.footer>div:first-child{grid-column:1/-1}}
 @media(max-width:430px){.products{grid-template-columns:1fr 1fr}.product-photo{height:225px}.product-info h3{font-size:19px}.hero h1{font-size:68px}.quote p{font-size:30px}}
 </style></head>
@@ -36,9 +39,31 @@
 <button class="iconbtn hamb" onclick="toggleMenu(true)" aria-label="Open menu">☰</button>
 <a href="#home" aria-label="VOZRIK home"><img class="logo" src="logo.png" alt="VOZRIK"></a>
 <nav class="nav"><a href="#home">HOME</a><a href="#collections">COLLECTIONS</a><a href="#shop">SHOP</a><a href="#about">ABOUT</a><a href="#contact">CONTACT</a></nav>
-<div class="actions"><button class="iconbtn" onclick="alert('Customer login will be connected after Firebase integration.')" aria-label="Account">♙</button><button class="iconbtn" onclick="alert('Shopping bag and checkout will be connected in the next development stage.')" aria-label="Shopping bag">♧</button></div>
+<div class="actions"><button class="iconbtn" onclick="openAuth()" aria-label="Customer account">♙</button><button class="iconbtn" onclick="alert('Shopping bag and checkout will be connected in the next development stage.')" aria-label="Shopping bag">♧</button></div>
 </header>
 <div class="menu-overlay" id="menu"><div class="overlay-top"><img class="logo" src="logo.png" alt="VOZRIK"><button class="iconbtn" onclick="toggleMenu(false)">✕</button></div><div class="overlay-links"><a href="#home" onclick="toggleMenu(false)">HOME</a><a href="#collections" onclick="toggleMenu(false)">COLLECTIONS</a><a href="#shop" onclick="toggleMenu(false)">SHOP</a><a href="#about" onclick="toggleMenu(false)">ABOUT</a><a href="#contact" onclick="toggleMenu(false)">CONTACT</a></div></div>
+
+<div class="auth-backdrop" id="authBackdrop" onclick="if(event.target===this)closeAuth()">
+  <section class="auth-panel" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+    <button class="auth-close" onclick="closeAuth()" aria-label="Close">✕</button>
+    <div class="eyebrow">VOZRIK CLIENT ACCOUNT</div>
+    <h2 id="authTitle">Welcome back.</h2>
+    <p class="auth-intro">Sign in or create your VOZRIK account.</p>
+    <div id="authSignedOut">
+      <div class="auth-tabs"><button class="auth-tab active" id="loginTab" onclick="setAuthMode('login')">SIGN IN</button><button class="auth-tab" id="registerTab" onclick="setAuthMode('register')">CREATE ACCOUNT</button></div>
+      <form id="authForm">
+        <label for="authName" id="nameLabel" hidden>Full name</label><input id="authName" type="text" autocomplete="name" placeholder="Full name" hidden>
+        <label for="authEmail">Email address</label><input id="authEmail" type="email" autocomplete="email" placeholder="you@example.com" required>
+        <label for="authPassword">Password</label><input id="authPassword" type="password" autocomplete="current-password" placeholder="At least 6 characters" minlength="6" required>
+        <button class="btn auth-submit" id="authSubmit" type="submit">SIGN IN</button>
+      </form>
+      <button class="auth-forgot" id="forgotButton" onclick="resetPassword()">Forgot password?</button>
+    </div>
+    <div id="authSignedIn" hidden><p id="authUserText"></p><button class="btn auth-submit" onclick="signOutCustomer()">SIGN OUT</button></div>
+    <p class="auth-message" id="authMessage" role="status" aria-live="polite"></p>
+    <p class="auth-note">Your account is secured by Firebase Authentication.</p>
+  </section>
+</div>
 <main>
 <section class="hero" id="home"><div class="hero-inner"><div class="eyebrow">The VOZRIK edit · New season</div><h1>Wear<br>Your Story.</h1><p>Modern silhouettes. Timeless confidence. Discover pieces designed to become part of your identity.</p><a class="btn" href="#shop">Explore the collection</a></div></section>
 <section class="section" id="collections"><div class="section-head"><div class="eyebrow">Curated for you</div><h2>Find Your Expression</h2><p>THOUGHTFUL DESIGN. DISTINCTIVE PRESENCE.</p></div><div class="categories">
@@ -65,4 +90,20 @@ function render(filter='All'){let data=filter==='All'?items:filter==='New Arriva
 function filterProducts(f,b){document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');render(f)}
 function toggleMenu(open){document.getElementById('menu').classList.toggle('open',open)}
 render();
-</script></body></html>
+</script>
+<script type="module">
+import { auth, db } from './firebase.js';
+import { onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail, updateProfile } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js';
+import { doc, setDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js';
+let authMode='login';
+const $=id=>document.getElementById(id);
+window.openAuth=()=>{$('authBackdrop').classList.add('open');$('authMessage').textContent='';};
+window.closeAuth=()=> $('authBackdrop').classList.remove('open');
+window.setAuthMode=(mode)=>{authMode=mode;const reg=mode==='register';$('loginTab').classList.toggle('active',!reg);$('registerTab').classList.toggle('active',reg);$('nameLabel').hidden=!reg;$('authName').hidden=!reg;$('authName').required=reg;$('authPassword').autocomplete=reg?'new-password':'current-password';$('authSubmit').textContent=reg?'CREATE ACCOUNT':'SIGN IN';$('forgotButton').hidden=reg;$('authTitle').textContent=reg?'Create your account.':'Welcome back.';$('authMessage').textContent='';};
+$('authForm').addEventListener('submit',async e=>{e.preventDefault();const email=$('authEmail').value.trim();const password=$('authPassword').value;const name=$('authName').value.trim();$('authSubmit').disabled=true;$('authMessage').textContent='Please wait…';try{if(authMode==='register'){if(!name)throw new Error('Please enter your full name.');const cred=await createUserWithEmailAndPassword(auth,email,password);await updateProfile(cred.user,{displayName:name});await setDoc(doc(db,'customers',cred.user.uid),{uid:cred.user.uid,name,email,createdAt:serverTimestamp()},{merge:true});$('authMessage').textContent='Your VOZRIK account has been created.';}else{await signInWithEmailAndPassword(auth,email,password);$('authMessage').textContent='You are signed in.';}}catch(err){$('authMessage').textContent=friendlyAuthError(err.code,err.message);}finally{$('authSubmit').disabled=false;}});
+window.resetPassword=async()=>{const email=$('authEmail').value.trim();if(!email){$('authMessage').textContent='Enter your email address first.';return;}try{await sendPasswordResetEmail(auth,email);$('authMessage').textContent='Password reset email sent. Check your inbox.';}catch(err){$('authMessage').textContent=friendlyAuthError(err.code,err.message);}};
+window.signOutCustomer=async()=>{try{await signOut(auth);$('authMessage').textContent='You have signed out.';}catch(err){$('authMessage').textContent=friendlyAuthError(err.code,err.message);}};
+function friendlyAuthError(code,msg){const map={'auth/email-already-in-use':'This email already has an account. Please sign in.','auth/invalid-email':'Please enter a valid email address.','auth/weak-password':'Choose a stronger password with at least 6 characters.','auth/invalid-credential':'Email or password is incorrect.','auth/user-not-found':'No account found for this email.','auth/wrong-password':'Email or password is incorrect.','auth/too-many-requests':'Too many attempts. Please try again later.','auth/network-request-failed':'Network issue. Check your internet connection.'};return map[code]||msg||'Something went wrong. Please try again.';}
+onAuthStateChanged(auth,user=>{const signedIn=!!user;$('authSignedOut').hidden=signedIn;$('authSignedIn').hidden=!signedIn;if(user){$('authUserText').textContent='Signed in as '+(user.displayName||user.email||user.phoneNumber||'VOZRIK customer');$('authTitle').textContent='Your account.';}else{$('authTitle').textContent=authMode==='register'?'Create your account.':'Welcome back.';}});
+</script>
+</body></html>
