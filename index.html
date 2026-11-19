@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080808">
+<title>VOZRIK — Beyond Fashion. A Statement of Identity.</title>
+<meta name="description" content="VOZRIK — timeless elegance, individual expression and modern sophistication.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--black:#080808;--ivory:#f3ebdd;--gold:#bfa16a;--muted:#aaa197;--line:#302b25}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--black);color:var(--ivory);font-family:Montserrat,Arial,sans-serif;font-size:12px;letter-spacing:.04em}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
+.announcement{text-align:center;padding:10px 12px;background:#17130e;color:#d8c39c;font-size:9px;letter-spacing:.2em;text-transform:uppercase}
+.header{height:82px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;border-bottom:1px solid var(--line);position:sticky;top:0;background:#080808ed;backdrop-filter:blur(12px);z-index:10}
+.logo{width:156px;height:62px;object-fit:contain;object-position:left center}.nav{display:flex;gap:30px}.nav a{font-size:9px;letter-spacing:.19em;transition:color .2s}.nav a:hover,.footer a:hover{color:var(--gold)}
+.actions{display:flex;align-items:center;gap:14px}.iconbtn{border:0;background:none;color:var(--ivory);font-size:17px;padding:7px}.hamb{display:none}
+.hero{min-height:690px;height:78vh;max-height:820px;display:flex;align-items:center;padding:8vw;background:linear-gradient(90deg,#080808 0%,#080808e8 38%,#08080838 100%),url('https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1900&q=88') center/cover}
+.hero-inner{max-width:520px}.eyebrow{font-size:9px;letter-spacing:.32em;color:var(--gold);text-transform:uppercase}.hero h1{font:500 clamp(65px,8vw,108px)/.86 'Cormorant Garamond',serif;margin:24px 0}.hero p{color:#c7beb2;line-height:2.1;max-width:390px;font-size:11px}
+.btn{display:inline-block;border:1px solid var(--gold);padding:15px 25px;background:var(--gold);color:#100e0b;font-size:9px;letter-spacing:.2em;text-transform:uppercase;margin-top:20px;transition:.2s}.btn:hover{background:transparent;color:var(--gold)}.btn.outline{background:transparent;color:var(--ivory);border-color:#71634d}
+.section{padding:96px 6vw}.section-head{text-align:center;margin-bottom:44px}.section-head h2{font:500 51px 'Cormorant Garamond',serif;margin:12px 0}.section-head p{color:var(--muted);font-size:9px;letter-spacing:.18em}
+.categories{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.category{height:420px;position:relative;overflow:hidden;background:#191512}.category img{width:100%;height:100%;object-fit:cover;transition:transform .65s}.category:hover img{transform:scale(1.05)}.category:after{content:"";position:absolute;inset:38% 0 0;background:linear-gradient(transparent,#000c)}.category-label{position:absolute;bottom:27px;left:26px;z-index:1}.category-label h3{font:500 38px 'Cormorant Garamond',serif;margin:0 0 9px}.category-label span{font-size:8px;letter-spacing:.22em;color:#dfcda8}
+.shop{background:#0c0c0c}.filters{display:flex;justify-content:center;gap:27px;margin:0 0 34px;flex-wrap:wrap}.filter{border:0;border-bottom:1px solid transparent;background:none;color:#928b81;font-size:9px;letter-spacing:.17em;padding:9px 0}.filter.active{color:var(--gold);border-color:var(--gold)}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:34px 17px}.product-photo{height:405px;background:#171513;overflow:hidden;position:relative}.product-photo img{width:100%;height:100%;object-fit:cover;transition:transform .6s}.product:hover img{transform:scale(1.04)}.tag{position:absolute;top:14px;left:14px;background:#0b0b0b;color:var(--gold);padding:7px 10px;font-size:8px;letter-spacing:.14em}.product-info{padding:15px 2px}.product-info h3{font:500 24px 'Cormorant Garamond',serif;margin:0 0 8px}.price{font-size:11px;color:#d5c6a9}.product-info button{margin-top:12px;border:0;border-bottom:1px solid var(--gold);padding:7px 0;background:none;color:var(--ivory);font-size:9px;letter-spacing:.15em}
+.story{background:#111;display:grid;grid-template-columns:1fr 1fr;gap:7vw;align-items:center}.story-image{height:510px;background:url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1100&q=85') center/cover}.story-copy h2{font:500 58px/.96 'Cormorant Garamond',serif;margin:17px 0}.story-copy p{color:#b7afa5;line-height:2.15;font-size:11px;max-width:480px}
+.quote{text-align:center;padding:105px 20px}.quote p{font:italic 37px 'Cormorant Garamond',serif;max-width:760px;margin:0 auto 22px}
+.contact{background:#111;text-align:center}.contact h2{font:500 49px 'Cormorant Garamond',serif;margin:14px 0}.contact p{color:var(--muted);line-height:2}
+.footer{border-top:1px solid var(--line);padding:48px 6vw 24px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}.footer-logo{width:145px;height:58px;object-fit:contain;object-position:left}.footer p,.footer a{font-size:10px;color:var(--muted);line-height:2}.footer h4{font-size:9px;letter-spacing:.2em;color:var(--gold);font-weight:500}.copyright{grid-column:1/-1;border-top:1px solid var(--line);padding-top:20px;color:#766f65;font-size:9px}
+.menu-overlay{display:none;position:fixed;inset:0;background:#080808f8;z-index:20;padding:25px 7vw}.menu-overlay.open{display:block}.overlay-top{display:flex;justify-content:space-between;align-items:center}.overlay-links{display:flex;flex-direction:column;gap:22px;margin-top:12vh}.overlay-links a{font:500 43px 'Cormorant Garamond',serif}
+.whatsapp{position:fixed;bottom:20px;right:20px;background:var(--gold);color:#100e0b;padding:14px 18px;font-size:9px;letter-spacing:.13em;z-index:8}
+@media(max-width:800px){.nav{display:none}.hamb{display:inline-block}.header{height:70px;padding:0 5vw}.logo{width:132px;height:54px}.hero{height:660px;min-height:0;background-position:60% center}.categories{grid-template-columns:1fr}.category{height:350px}.products{grid-template-columns:repeat(2,1fr);gap:23px 11px}.product-photo{height:275px}.story{grid-template-columns:1fr}.story-image{height:360px}.section{padding:68px 5vw}.footer{grid-template-columns:1fr 1fr}.footer>div:first-child{grid-column:1/-1}}
+@media(max-width:430px){.products{grid-template-columns:1fr 1fr}.product-photo{height:225px}.product-info h3{font-size:19px}.hero h1{font-size:68px}.quote p{font-size:30px}}
+</style></head>
+<body>
+<div class="announcement">Complimentary shipping on eligible orders above ₹1,999</div>
+<header class="header">
+<button class="iconbtn hamb" onclick="toggleMenu(true)" aria-label="Open menu">☰</button>
+<a href="#home" aria-label="VOZRIK home"><img class="logo" src="logo.png" alt="VOZRIK"></a>
+<nav class="nav"><a href="#home">HOME</a><a href="#collections">COLLECTIONS</a><a href="#shop">SHOP</a><a href="#about">ABOUT</a><a href="#contact">CONTACT</a></nav>
+<div class="actions"><button class="iconbtn" onclick="alert('Customer login will be connected after Firebase integration.')" aria-label="Account">♙</button><button class="iconbtn" onclick="alert('Shopping bag and checkout will be connected in the next development stage.')" aria-label="Shopping bag">♧</button></div>
+</header>
+<div class="menu-overlay" id="menu"><div class="overlay-top"><img class="logo" src="logo.png" alt="VOZRIK"><button class="iconbtn" onclick="toggleMenu(false)">✕</button></div><div class="overlay-links"><a href="#home" onclick="toggleMenu(false)">HOME</a><a href="#collections" onclick="toggleMenu(false)">COLLECTIONS</a><a href="#shop" onclick="toggleMenu(false)">SHOP</a><a href="#about" onclick="toggleMenu(false)">ABOUT</a><a href="#contact" onclick="toggleMenu(false)">CONTACT</a></div></div>
+<main>
+<section class="hero" id="home"><div class="hero-inner"><div class="eyebrow">The VOZRIK edit · New season</div><h1>Wear<br>Your Story.</h1><p>Modern silhouettes. Timeless confidence. Discover pieces designed to become part of your identity.</p><a class="btn" href="#shop">Explore the collection</a></div></section>
+<section class="section" id="collections"><div class="section-head"><div class="eyebrow">Curated for you</div><h2>Find Your Expression</h2><p>THOUGHTFUL DESIGN. DISTINCTIVE PRESENCE.</p></div><div class="categories">
+<a class="category" href="#shop"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=85" alt="Women's collection"><div class="category-label"><h3>Women</h3><span>DISCOVER THE EDIT →</span></div></a>
+<a class="category" href="#shop"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85" alt="Men's collection"><div class="category-label"><h3>Men</h3><span>DISCOVER THE EDIT →</span></div></a>
+<a class="category" href="#shop"><img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=900&q=85" alt="New arrivals"><div class="category-label"><h3>New Arrivals</h3><span>DISCOVER THE EDIT →</span></div></a>
+</div></section>
+<section class="section shop" id="shop"><div class="section-head"><div class="eyebrow">The collection</div><h2>Considered Essentials</h2><p>PIECES THAT SPEAK WITHOUT SAYING TOO MUCH.</p></div><div class="filters"><button class="filter active" onclick="filterProducts('All',this)">ALL</button><button class="filter" onclick="filterProducts('Women',this)">WOMEN</button><button class="filter" onclick="filterProducts('Men',this)">MEN</button><button class="filter" onclick="filterProducts('New Arrivals',this)">NEW ARRIVALS</button></div><div class="products" id="products"></div></section>
+<section class="section story" id="about"><div class="story-image"></div><div class="story-copy"><div class="eyebrow">The VOZRIK philosophy</div><h2>Dressed in<br>Intention.</h2><p>At VOZRIK, we believe style is a quiet expression of who you are. We bring together timeless elegance, individual expression and modern sophistication to create pieces that feel considered, confident and enduring.</p><p>Fashion is not what you wear. It is what you leave behind.</p><a class="btn outline" href="#contact">Discover our story</a></div></section>
+<section class="quote"><p>“Fashion is not what you wear. It is what you leave behind.”</p><div class="eyebrow">Beyond Fashion. A Statement of Identity.</div></section>
+<section class="section contact" id="contact"><div class="eyebrow">We are here to help</div><h2>Connect with VOZRIK</h2><p>Questions about a piece, an order or your experience?<br>Our support team is available 10 AM – 7 PM.</p><a class="btn" href="https://wa.me/917508108744" target="_blank" rel="noopener">Chat on WhatsApp</a><p>support@vozrik.in</p></section>
+</main>
+<footer class="footer"><div><img class="footer-logo" src="logo.png" alt="VOZRIK"><p>Beyond Fashion. A Statement of Identity.<br>Wear less. Wear better. Wear Vozrik.</p></div><div><h4>EXPLORE</h4><p><a href="#collections">Collections</a><br><a href="#shop">Shop</a><br><a href="#about">About us</a></p></div><div><h4>CLIENT CARE</h4><p><a href="#contact">Contact</a><br><a href="#contact">Shipping & Returns</a><br><a href="#contact">Privacy Policy</a></p></div><div class="copyright">© 2026 VOZRIK. ALL RIGHTS RESERVED. · WWW.VOZRIK.IN</div></footer>
+<a class="whatsapp" href="https://wa.me/917508108744" target="_blank" rel="noopener">WHATSAPP</a>
+<script>
+const items=[
+['The Obsidian Coat',12500,'Women','https://images.unsplash.com/photo-1539533018447-63fcce2678e3?auto=format&fit=crop&w=900&q=85','SIGNATURE'],
+['Structured Blazer',8900,'Men','https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=900&q=85','TIMELESS'],
+['Minimal Shift Dress',6200,'Women','https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=900&q=85','ESSENTIAL'],
+['The Sculpted Jacket',9800,'Men','https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=900&q=85','NEW'],
+['Essential Tailored Shirt',4200,'Men','https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=900&q=85','ESSENTIAL'],
+['The Signature Set',7600,'Women','https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=85','NEW']];
+function render(filter='All'){let data=filter==='All'?items:filter==='New Arrivals'?items.filter(x=>x[4]==='NEW'):items.filter(x=>x[2]===filter);document.getElementById('products').innerHTML=data.map(x=>`<article class="product"><div class="product-photo"><img src="${x[3]}" alt="${x[0]}" loading="lazy"><span class="tag">${x[4]}</span></div><div class="product-info"><h3>${x[0]}</h3><div class="price">₹${x[1].toLocaleString('en-IN')}</div><button onclick="alert('Product options and secure cart will be added in the next stage.')">VIEW DETAILS +</button></div></article>`).join('')}
+function filterProducts(f,b){document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');render(f)}
+function toggleMenu(open){document.getElementById('menu').classList.toggle('open',open)}
+render();
+</script></body></html>
