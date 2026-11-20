@@ -254,6 +254,25 @@
       text-transform: uppercase;
     }
     .whatsapp-product:hover { color: var(--white); border-color: var(--white); }
+    .product-actions { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top:15px; }
+    .size-select { min-width:105px; padding:11px 12px; border:1px solid #444; background:#090909; color:#fff; font-size:10px; letter-spacing:1px; }
+    .add-cart { padding:12px 15px; border:1px solid var(--gold); background:var(--gold); color:#000; font-size:9px; font-weight:600; letter-spacing:1.2px; }
+    .add-cart:hover { background:#fff; border-color:#fff; }
+    .cart-nav { border:1px solid var(--gold); padding:10px 14px; color:var(--gold); background:transparent; font-size:10px; letter-spacing:1px; }
+    .cart-layout { display:grid; grid-template-columns:minmax(0,1.5fr) minmax(280px,.8fr); gap:35px; padding:0 7% 100px; }
+    .cart-item { display:grid; grid-template-columns:90px 1fr auto; gap:16px; align-items:center; padding:18px 0; border-bottom:1px solid var(--line); }
+    .cart-item img { width:90px; height:110px; object-fit:cover; }
+    .cart-item h3 { font:400 25px/1.1 var(--serif); margin-bottom:8px; }
+    .cart-item p,.cart-empty { color:var(--muted); font-size:11px; line-height:1.8; }
+    .qty-controls { display:flex; align-items:center; gap:10px; margin-top:10px; }
+    .qty-controls button,.remove-item { background:transparent; color:var(--gold); border:1px solid #444; padding:5px 10px; }
+    .cart-summary { border:1px solid var(--line); padding:25px; height:max-content; }
+    .cart-summary h2 { font:400 32px var(--serif); margin-bottom:20px; }
+    .summary-line { display:flex; justify-content:space-between; gap:15px; padding:12px 0; border-bottom:1px solid var(--line); font-size:12px; }
+    .summary-total { font-size:16px; color:var(--gold); }
+    .cart-summary .btn { width:100%; margin-top:20px; }
+    .checkout-note { color:var(--muted); font-size:10px; line-height:1.8; margin-top:14px; }
+    @media(max-width:760px) { .cart-layout { grid-template-columns:1fr; padding:0 6% 75px; } .cart-item { grid-template-columns:72px 1fr auto; gap:10px; } .cart-item img { width:72px; height:92px; } .cart-item h3 { font-size:21px; } .product-actions { align-items:stretch; } }
 
     .bottom-cta { padding: 105px 7%; text-align: center; background: #0b0b0b; }
     .bottom-cta h2 { margin: 18px 0 28px; font: 400 clamp(45px, 7vw, 78px)/1.05 var(--serif); }
@@ -387,6 +406,58 @@
       .whatsapp-float { right: 13px; bottom: 13px; padding: 11px 13px; font-size: 9px; }
       .footer-bottom { flex-direction: column; }
     }
+  
+    /* VOZRIK customer account */
+    .auth-backdrop{display:none;position:fixed;inset:0;z-index:1000;background:#000d;align-items:center;justify-content:center;padding:18px}
+    .auth-backdrop.open{display:flex}
+    .auth-panel{position:relative;width:min(100%,440px);max-height:92vh;overflow:auto;background:#101010;border:1px solid #6b5737;padding:34px 26px;box-shadow:0 20px 80px #000}
+    .auth-close{position:absolute;right:14px;top:12px;background:none;border:0;color:#fff;font-size:22px}
+    .auth-panel h2{font:400 38px/1.1 var(--serif);margin:12px 0}
+    .auth-intro,.auth-note{color:#999;font-size:11px;line-height:1.8}
+    .auth-tabs{display:flex;gap:22px;border-bottom:1px solid #333;margin:22px 0 16px}
+    .auth-tab{background:none;border:0;color:#999;padding:0 0 11px;font-size:10px;letter-spacing:1.4px}
+    .auth-tab.active{color:var(--gold);border-bottom:1px solid var(--gold)}
+    .auth-panel label{display:block;color:#c9bda9;font-size:10px;margin:14px 0 7px;letter-spacing:1px}
+    .auth-panel input{width:100%;background:#080808;border:1px solid #39342c;color:#fff;padding:14px;font:12px var(--sans)}
+    .auth-submit{width:100%;margin-top:18px}
+    .auth-forgot{display:block;margin:14px auto 0;background:none;border:0;color:var(--gold);font-size:11px}
+    .auth-message{min-height:20px;color:var(--gold);font-size:11px;line-height:1.6;margin-top:12px}
+    .auth-note{border-top:1px solid #333;padding-top:13px;margin-top:14px}
+    .auth-panel [hidden]{display:none!important}
+    @media(max-width:480px){.auth-panel{padding:30px 20px}}
+
+
+    /* VOZRIK 2026 luxury editorial refresh */
+    :root { --gold:#C5A059; --line:#24211c; }
+    body { letter-spacing:.015em; }
+    .site-header { height:76px; backdrop-filter:blur(14px); background:rgba(0,0,0,.94); }
+    .logo-img { height:38px; }
+    .hero { min-height:min(820px,calc(100vh - 76px)); background-position:center 30%; }
+    .hero h1 { letter-spacing:-.035em; }
+    .section { padding-top:clamp(70px,9vw,112px); padding-bottom:clamp(70px,9vw,112px); }
+    .product-card { background:#080808; border:1px solid #171717; transition:transform .35s,border-color .35s; }
+    .product-card:hover { transform:translateY(-5px); border-color:rgba(197,160,89,.55); }
+    .product-image { background:#111; }
+    .product-image img { transition:transform .7s cubic-bezier(.2,.7,.2,1); }
+    .product-card:hover .product-image img { transform:scale(1.035); }
+    .product-info { padding:20px 18px 22px; }
+    .product-info h3 { font-family:var(--serif); font-size:25px; font-weight:500; }
+    .product-price { color:var(--gold); letter-spacing:.08em; }
+    .btn,.add-cart { letter-spacing:2px; }
+    .btn:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible { outline:2px solid var(--gold); outline-offset:3px; }
+    .checkout-label { color:var(--gold); font-size:10px; letter-spacing:2px; }
+    #paymentMethod { width:100%; min-height:52px; padding:14px; color:#fff; background:#080808; border:1px solid #333; }
+    .order-confirmation { margin-top:24px; padding:24px; border:1px solid var(--gold); color:#eee; line-height:1.9; }
+    .orders-heading { margin:24px 0 12px; color:var(--gold); font-size:11px; letter-spacing:2px; }
+    .customer-orders { max-height:220px; overflow:auto; margin-bottom:20px; font-size:12px; line-height:1.8; color:#ccc; }
+    #adminQuickLink[hidden] { display:none !important; }
+    .admin-order { border-top:1px solid var(--line); padding:12px 0; }
+    .admin-order select { background:#090909; color:#fff; border:1px solid var(--line); padding:9px; margin:8px 8px 0 0; max-width:180px; }
+    .admin-order button { padding:9px 12px; background:var(--gold); color:#000; border:0; letter-spacing:1px; font-size:10px; }
+    .customer-order { border-top:1px solid #292929; padding:12px 0; }
+    .contact-form input,.contact-form textarea { border-radius:0; }
+    @media(max-width:760px) { .site-header { height:68px; } .hero { min-height:650px; padding:70px 7%; background-position:58% center; } .hero p { font-size:12px; } .section { padding-left:6%; padding-right:6%; } }
+
   </style>
 </head>
 
@@ -408,6 +479,9 @@
       <span>MENU</span>
       <span class="hamburger" aria-hidden="true"><span></span><span></span></span>
     </button>
+    <button class="cart-nav" type="button" id="accountButton">ACCOUNT</button>
+    <button class="cart-nav" type="button" id="adminQuickLink" hidden>ADMIN</button>
+    <button class="cart-nav" type="button" data-page="cart">BAG (<span id="cartCount">0</span>)</button>
   </header>
 
   <!-- FULL-SCREEN MENU -->
@@ -421,6 +495,38 @@
       <a href="#about" data-page="about">ABOUT</a>
       <a href="#contact" data-page="contact">CONTACT</a>
     </nav>
+  </div>
+
+
+  <!-- CUSTOMER ACCOUNT -->
+  <div class="auth-backdrop" id="authBackdrop" aria-hidden="true">
+    <section class="auth-panel" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+      <button class="auth-close" id="authClose" type="button" aria-label="Close account">×</button>
+      <span class="micro-label">VOZRIK CLIENT ACCOUNT</span>
+      <h2 id="authTitle">Welcome back.</h2>
+      <p class="auth-intro">Sign in or create your VOZRIK account using your email address.</p>
+      <div id="authSignedOut">
+        <div class="auth-tabs"><button class="auth-tab active" id="loginTab" type="button">SIGN IN</button><button class="auth-tab" id="registerTab" type="button">CREATE ACCOUNT</button></div>
+        <form id="authForm">
+          <label for="authName" id="nameLabel" hidden>Full name</label><input id="authName" type="text" autocomplete="name" placeholder="Full name" hidden>
+          <label for="authEmail">Email address</label><input id="authEmail" type="email" autocomplete="email" placeholder="you@example.com" required>
+          <label for="authPassword">Password</label><input id="authPassword" type="password" autocomplete="current-password" placeholder="At least 6 characters" minlength="6" required>
+          <button class="btn filled auth-submit" id="authSubmit" type="submit">SIGN IN</button>
+        </form>
+        <button class="auth-forgot" id="forgotButton" type="button">Forgot password?</button>
+      </div>
+      <div id="authSignedIn" hidden><p id="authUserText" class="auth-intro"></p><h3 class="orders-heading">YOUR ORDERS</h3><div id="customerOrders" class="customer-orders">Sign in to view your orders.</div>
+        <section id="adminPanel" hidden style="margin:24px 0;padding:18px;border:1px solid var(--gold);text-align:left">
+          <span class="micro-label">PRIVATE VOZRIK ADMIN</span><h3 style="font-family:var(--serif);font-size:25px;margin:8px 0">Order management</h3>
+          <p class="checkout-note" style="margin:0 0 12px">Private admin area. Update fulfilment progress; payment verification remains server-controlled.</p>
+          <button class="btn auth-submit" id="adminRefresh" type="button">REFRESH ORDERS</button>
+          <p id="adminMessage" class="auth-message" role="status" aria-live="polite"></p>
+          <div id="adminOrders" class="customer-orders" style="max-height:420px"></div>
+        </section>
+        <button class="btn auth-submit" id="signOutButton" type="button">SIGN OUT</button></div>
+      <p class="auth-message" id="authMessage" role="status" aria-live="polite"></p>
+      <p class="auth-note">Account authentication is handled by Firebase. Never share your password or OTP with anyone.</p>
+    </section>
   </div>
 
   <!-- HOME VIEW -->
@@ -548,6 +654,48 @@
     </section>
   </main>
 
+  <!-- CART VIEW -->
+  <main id="cart" class="page-view">
+    <section class="page-heading">
+      <span class="micro-label">YOUR SELECTION</span>
+      <h1>Shopping Bag</h1>
+      <p>Review your pieces before moving to secure checkout.</p>
+    </section>
+    <section class="cart-layout">
+      <div id="cartItems" aria-live="polite"><p class="cart-empty">Your bag is currently empty.</p></div>
+      <aside class="cart-summary">
+        <h2>Order Summary</h2>
+        <div class="summary-line"><span>Subtotal</span><strong id="cartSubtotal">₹0</strong></div>
+        <div class="summary-line"><span>Shipping</span><strong id="cartShipping">Calculated at checkout</strong></div>
+        <div class="summary-line summary-total"><span>Total</span><strong id="cartTotal">₹0</strong></div>
+        <button class="btn filled" type="button" id="checkoutButton">CONTINUE TO CHECKOUT</button>
+        <p class="checkout-note">Free shipping on orders above ₹1,999. Delivery availability and final shipping charges will be confirmed at checkout.</p>
+      </aside>
+    </section>
+    <section class="section" id="checkoutSection" style="padding-top:10px;display:none">
+      <div class="contact-container">
+        <span class="micro-label">SECURE CHECKOUT</span>
+        <h2 class="section-title">Delivery Details</h2>
+        <p class="contact-description">Complete your order securely on VOZRIK. Sign in before placing your order.</p>
+        <form class="contact-form" id="checkoutForm">
+          <input id="checkoutName" type="text" placeholder="FULL NAME" autocomplete="name" required>
+          <input id="checkoutPhone" type="tel" inputmode="numeric" placeholder="10-DIGIT MOBILE NUMBER" pattern="[0-9]{10}" required>
+          <input id="checkoutEmail" type="email" placeholder="EMAIL ADDRESS" autocomplete="email" required>
+          <textarea id="checkoutAddress" placeholder="HOUSE / STREET / AREA" required></textarea>
+          <input id="checkoutCity" type="text" placeholder="CITY" required>
+          <input id="checkoutState" type="text" placeholder="STATE" required>
+          <input id="checkoutPin" type="text" inputmode="numeric" placeholder="6-DIGIT PIN CODE" pattern="[0-9]{6}" required>
+          <label for="paymentMethod" class="checkout-label">PAYMENT METHOD</label>
+          <select id="paymentMethod" required><option value="">SELECT PAYMENT METHOD</option><option value="cod">CASH ON DELIVERY</option><option value="razorpay">PAY ONLINE — UPI / CARD / NET BANKING</option></select>
+          <p class="checkout-note">Free shipping on orders above ₹1,999. For orders below ₹1,999, shipping charges must be configured before accepting live orders. Delivery subject to PIN-code serviceability.</p>
+          <button class="btn filled" id="placeOrderButton" type="submit">PLACE ORDER</button>
+          <p id="checkoutMessage" class="auth-message" role="status" aria-live="polite"></p>
+        </form>
+        <div id="orderConfirmation" class="order-confirmation" hidden></div>
+      </div>
+    </section>
+  </main>
+
   <!-- ABOUT VIEW -->
   <main id="about" class="page-view">
     <section class="about-hero">
@@ -646,6 +794,11 @@
       </div>
     </div>
 
+    <div class="footer-links" style="margin:34px 0 24px;max-width:760px;line-height:2.1">
+      <strong style="color:var(--gold);font-size:10px;letter-spacing:1.5px">DELIVERY &amp; RETURNS</strong>
+      <p style="color:var(--muted);font-size:11px">Pan-India delivery, subject to PIN-code serviceability. Free shipping on orders above ₹1,999. 7-day return, exchange and refund window. For standard returns, return shipping is paid by the customer. If an item arrives damaged, defective or incorrect, contact support.</p>
+      <p style="color:var(--muted);font-size:11px">Support: <a href="mailto:support@vozrik.in">support@vozrik.in</a> · 10 AM–7 PM · WhatsApp support: +91 7508108744</p>
+    </div>
     <div class="footer-bottom">
       <span>© 2026 VOZRIK. ALL RIGHTS RESERVED.</span>
       <span>PREMIUM MINIMALIST FASHION.</span>
@@ -655,7 +808,7 @@
   <!-- FLOATING WHATSAPP ORDER BUTTON -->
   <a class="whatsapp-float" id="floatingWhatsApp" href="https://wa.me/" target="_blank" rel="noopener noreferrer">
     <span class="whatsapp-symbol" aria-hidden="true">◉</span>
-    <span>ORDER ON WHATSAPP</span>
+    <span>WHATSAPP SUPPORT</span>
   </a>
 
   <script>
@@ -674,17 +827,17 @@
       },
       {
         name: "Quilted Puffer Vests – Neutral Collection",
-        category: "men", label: "Men • Puffer Vest", price: 1599,
+        category: "men", label: "Men • Puffer Vest", price: 999,
         image: "images/10160.jpg", isNew: true
       },
       {
         name: "Motorsport Track Jacket",
-        category: "men", label: "Men • Track Jacket", price: 2199,
+        category: "men", label: "Men • Track Jacket", price: 1699,
         image: "images/10162.jpg", isNew: true
       },
       {
         name: "Colour Pop Zip-Up Jackets",
-        category: "men", label: "Men • Zip-Up Jacket", price: 1399,
+        category: "men", label: "Men • Zip-Up Jacket", price: 1299,
         image: "images/10164.jpg", isNew: true
       },
       {
@@ -694,22 +847,22 @@
       },
       {
         name: "Hooded Puffer Vests – Sport Collection",
-        category: "men", label: "Men • Puffer Vest", price: 1699,
+        category: "men", label: "Men • Puffer Vest", price: 1999,
         image: "images/10170.jpg", isNew: true
       },
       {
         name: "Quilted Puffer Vests – Classic Colours",
-        category: "men", label: "Men • Puffer Vest", price: 1699,
+        category: "men", label: "Men • Puffer Vest", price: 1599,
         image: "images/10168.jpg", isNew: true
       },
       {
         name: "Motorsport Puffer Jackets",
-        category: "men", label: "Men • Winter Jacket", price: 2499,
+        category: "men", label: "Men • Winter Jacket", price: 1999,
         image: "images/10221.jpg", isNew: true
       },
       {
         name: "Graphic Puffer Vest – Blue",
-        category: "men", label: "Men • Puffer Vest", price: 1899,
+        category: "men", label: "Men • Puffer Vest", price: 1199,
         image: "images/10217.jpg", isNew: true
       },
       {
@@ -739,7 +892,7 @@
       }
     ];
 
-    const pageIds = ["home", "collections", "shop", "about", "contact"];
+    const pageIds = ["home", "collections", "shop", "cart", "about", "contact"];
     const menuOverlay = document.getElementById("menuOverlay");
     const menuButton = document.getElementById("menuButton");
 
@@ -769,10 +922,14 @@
             <span class="product-category">${product.label}</span>
             <h3>${product.name}</h3>
             <p class="product-price">${product.price == null ? "Price on Request" : formatPrice(product.price)}</p>
-            <a class="whatsapp-product" href="${whatsappUrl(message)}"
-               target="_blank" rel="noopener noreferrer">
-              INQUIRE ON WHATSAPP →
-            </a>
+            <div class="product-actions">
+              <select class="size-select" aria-label="Choose size for ${product.name}" data-size-for="${products.indexOf(product)}">
+                <option value="">SELECT SIZE</option>
+                <option value="M">M</option><option value="L">L</option>
+                <option value="XL">XL</option><option value="XXL">XXL</option>
+              </select>
+              <button class="add-cart" type="button" data-add-cart="${products.indexOf(product)}">ADD TO BAG</button>
+            </div>
           </div>
         </article>
       `;
@@ -797,6 +954,52 @@
         button.classList.toggle("active", active);
         button.setAttribute("aria-pressed", String(active));
       });
+    }
+
+    const ALLOWED_SIZES = ["M", "L", "XL", "XXL"];
+    let cart = [];
+    try { cart = JSON.parse(localStorage.getItem("vozrikCart") || "[]"); } catch (_) { cart = []; }
+
+    function saveCart() {
+      try { localStorage.setItem("vozrikCart", JSON.stringify(cart)); } catch (_) {}
+      renderCart();
+    }
+    function addToCart(index) {
+      const product = products[index];
+      const selector = document.querySelector(`[data-size-for="${index}"]`);
+      const size = selector ? selector.value : "";
+      if (!product || !ALLOWED_SIZES.includes(size)) {
+        alert("Please select a size: M, L, XL or XXL.");
+        return;
+      }
+      const existing = cart.find(item => item.name === product.name && item.size === size);
+      if (existing) existing.qty += 1;
+      else cart.push({ name: product.name, price: product.price, image: product.image, size, qty: 1 });
+      saveCart();
+      const count = document.getElementById("cartCount");
+      if (count) count.textContent = cart.reduce((sum, item) => sum + item.qty, 0);
+    }
+    function renderCart() {
+      const host = document.getElementById("cartItems");
+      if (!host) return;
+      const count = cart.reduce((sum, item) => sum + item.qty, 0);
+      const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+      document.getElementById("cartCount").textContent = count;
+      document.getElementById("cartSubtotal").textContent = formatPrice(subtotal);
+      document.getElementById("cartTotal").textContent = subtotal >= 1999 ? formatPrice(subtotal) : "Calculated at checkout";
+      document.getElementById("cartShipping").textContent = subtotal >= 1999 ? "Free" : "To be confirmed";
+      if (!cart.length) {
+        host.innerHTML = '<p class="cart-empty">Your bag is currently empty. Explore the collection to add a piece.</p>';
+      } else {
+        host.innerHTML = cart.map((item, index) => `
+          <article class="cart-item">
+            <img src="${item.image}" alt="${item.name}">
+            <div><h3>${item.name}</h3><p>Size: ${item.size} · ${formatPrice(item.price)}</p>
+              <div class="qty-controls"><button type="button" data-qty="${index}" data-change="-1" aria-label="Decrease quantity">−</button><span>${item.qty}</span><button type="button" data-qty="${index}" data-change="1" aria-label="Increase quantity">+</button></div>
+            </div>
+            <div><strong>${formatPrice(item.price * item.qty)}</strong><p><button class="remove-item" type="button" data-remove="${index}">Remove</button></p></div>
+          </article>`).join("");
+      }
     }
 
     function openMenu() {
@@ -839,6 +1042,16 @@
 
     // All same-file navigation links and buttons
     document.addEventListener("click", event => {
+      const addButton = event.target.closest("[data-add-cart]");
+      if (addButton) { addToCart(Number(addButton.dataset.addCart)); return; }
+      const qtyButton = event.target.closest("[data-qty]");
+      if (qtyButton) {
+        const index = Number(qtyButton.dataset.qty);
+        if (cart[index]) { cart[index].qty += Number(qtyButton.dataset.change); if (cart[index].qty <= 0) cart.splice(index, 1); saveCart(); }
+        return;
+      }
+      const removeButton = event.target.closest("[data-remove]");
+      if (removeButton) { cart.splice(Number(removeButton.dataset.remove), 1); saveCart(); return; }
       const pageControl = event.target.closest("[data-page]");
       if (pageControl) {
         event.preventDefault();
@@ -879,6 +1092,14 @@
     });
 
     // Initial page and product rendering
+    renderCart();
+    document.getElementById("checkoutButton").addEventListener("click", () => {
+      if (!cart.length) { alert("Your bag is empty. Please add a product first."); return; }
+      const section = document.getElementById("checkoutSection");
+      section.style.display = "block";
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    // Checkout submission is handled by the authenticated Firebase module below.
     document.getElementById("featuredProducts").innerHTML =
       products.slice(0, 3).map(productCard).join("");
     renderProducts("all");
@@ -888,7 +1109,7 @@
 
     // Floating WhatsApp button
     document.getElementById("floatingWhatsApp").href = whatsappUrl(
-      "Hello VOZRIK, I would like to know more about your collection and place an order."
+      "Hello VOZRIK, I need help with my order / product enquiry."
     );
 
     // Contact form opens WhatsApp with the customer's inquiry.
@@ -914,5 +1135,141 @@
       window.open(whatsappUrl(text), "_blank", "noopener,noreferrer");
     });
   </script>
+
+  <script type="module">
+    import { auth, db } from './firebase.js';
+    import { onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail, updateProfile } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js';
+    import { doc, setDoc, serverTimestamp, collection, query, where, getDocs } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js';
+    import { getFunctions, httpsCallable } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-functions.js';
+    const $ = id => document.getElementById(id);
+    const functions = getFunctions(undefined, 'asia-south1');
+    const placeCodOrder = httpsCallable(functions, 'placeCodOrder');
+    const createRazorpayOrder = httpsCallable(functions, 'createRazorpayOrder');
+    const verifyRazorpayPayment = httpsCallable(functions, 'verifyRazorpayPayment');
+    const adminListOrders = httpsCallable(functions, 'adminListOrders');
+    const adminUpdateOrderFulfillment = httpsCallable(functions, 'adminUpdateOrderFulfillment');
+    let authMode = 'login';
+    const backdrop = $('authBackdrop');
+    function openAccount(){ backdrop.classList.add('open'); backdrop.setAttribute('aria-hidden','false'); $('authMessage').textContent=''; }
+    function closeAccount(){ backdrop.classList.remove('open'); backdrop.setAttribute('aria-hidden','true'); }
+    $('adminQuickLink').addEventListener('click',()=>{
+      openAccount();
+      if(auth.currentUser){
+        $('adminPanel').hidden=false;
+        requestAnimationFrame(()=> $('adminPanel').scrollIntoView({behavior:'smooth',block:'start'}));
+      }
+    });
+    function setMode(mode){
+      authMode=mode; const register=mode==='register';
+      $('loginTab').classList.toggle('active',!register); $('registerTab').classList.toggle('active',register);
+      $('nameLabel').hidden=!register; $('authName').hidden=!register; $('authName').required=register;
+      $('authPassword').autocomplete=register?'new-password':'current-password';
+      $('authSubmit').textContent=register?'CREATE ACCOUNT':'SIGN IN'; $('forgotButton').hidden=register;
+      $('authTitle').textContent=register?'Create your account.':'Welcome back.'; $('authMessage').textContent='';
+    }
+    function friendlyError(code,msg){
+      const messages={'auth/email-already-in-use':'This email already has an account. Please sign in.','auth/invalid-email':'Please enter a valid email address.','auth/weak-password':'Choose a password with at least 6 characters.','auth/invalid-credential':'Email or password is incorrect.','auth/user-not-found':'No account found for this email.','auth/wrong-password':'Email or password is incorrect.','auth/too-many-requests':'Too many attempts. Please try again later.','auth/network-request-failed':'Network issue. Check your internet connection.'};
+      return messages[code] || msg || 'Something went wrong. Please try again.';
+    }
+    $('accountButton').addEventListener('click',openAccount); $('authClose').addEventListener('click',closeAccount);
+    backdrop.addEventListener('click',e=>{if(e.target===backdrop)closeAccount();});
+    $('loginTab').addEventListener('click',()=>setMode('login')); $('registerTab').addEventListener('click',()=>setMode('register'));
+    $('authForm').addEventListener('submit',async e=>{
+      e.preventDefault(); const email=$('authEmail').value.trim(); const password=$('authPassword').value; const name=$('authName').value.trim();
+      $('authSubmit').disabled=true; $('authMessage').textContent='Please wait…';
+      try{
+        if(authMode==='register'){
+          if(!name) throw new Error('Please enter your full name.');
+          const cred=await createUserWithEmailAndPassword(auth,email,password);
+          await updateProfile(cred.user,{displayName:name});
+          await setDoc(doc(db,'customers',cred.user.uid),{uid:cred.user.uid,name,email,createdAt:serverTimestamp()},{merge:true});
+          $('authMessage').textContent='Your VOZRIK account has been created.';
+        } else { await signInWithEmailAndPassword(auth,email,password); $('authMessage').textContent='You are signed in.'; }
+      }catch(err){ $('authMessage').textContent=friendlyError(err.code,err.message); }
+      finally{$('authSubmit').disabled=false;}
+    });
+    $('forgotButton').addEventListener('click',async()=>{
+      const email=$('authEmail').value.trim(); if(!email){$('authMessage').textContent='Enter your email address first.';return;}
+      try{await sendPasswordResetEmail(auth,email);$('authMessage').textContent='Password reset email sent. Check your inbox.';}
+      catch(err){$('authMessage').textContent=friendlyError(err.code,err.message);}
+    });
+    $('signOutButton').addEventListener('click',async()=>{try{await signOut(auth);$('authMessage').textContent='You have signed out.';}catch(err){$('authMessage').textContent=friendlyError(err.code,err.message);}});
+    onAuthStateChanged(auth,user=>{
+      const signedIn=!!user; $('authSignedOut').hidden=signedIn; $('authSignedIn').hidden=!signedIn;
+      if(user){$('authUserText').textContent='Signed in as '+(user.displayName||user.email||'VOZRIK customer');$('authTitle').textContent='Your account.';if(user.displayName&&!$('checkoutName').value)$('checkoutName').value=user.displayName;if(user.email&&!$('checkoutEmail').value)$('checkoutEmail').value=user.email;loadCustomerOrders(user);checkAdminAccess(user);}
+      else {$('authTitle').textContent=authMode==='register'?'Create your account.':'Welcome back.';$('adminPanel').hidden=true;$('adminQuickLink').hidden=true;}
+    });
+    async function loadCustomerOrders(user){
+      const host=$('customerOrders'); host.textContent='Loading your orders…';
+      try{
+        const q=query(collection(db,'orders'),where('uid','==',user.uid));
+        const snap=await getDocs(q);
+        if(snap.empty){host.textContent='No orders yet. Your VOZRIK orders will appear here.';return;}
+        const docs=snap.docs.sort((a,b)=>(b.data().createdAt?.seconds||0)-(a.data().createdAt?.seconds||0));
+        host.replaceChildren();
+        docs.forEach(d=>{const x=d.data();const card=document.createElement('div');card.className='customer-order';const strong=document.createElement('strong');strong.textContent=d.id;const details=document.createElement('div');details.textContent=`${x.status||'Processing'} · ${x.paymentMethod==='cod'?'Cash on Delivery':'Online'} · ₹${Number(x.total||0).toLocaleString('en-IN')}`;card.append(strong,document.createElement('br'),details);host.append(card);});
+      }catch(e){host.textContent='Order history is not available until Firestore rules and backend are deployed.';}
+    }
+    async function checkAdminAccess(user){
+      try{
+        const token=await user.getIdTokenResult(true);
+        const isAdmin=token.claims.admin===true;
+        $('adminPanel').hidden=!isAdmin;
+        $('adminQuickLink').hidden=!isAdmin;
+        if(isAdmin) await loadAdminOrders();
+      }catch(e){$('adminPanel').hidden=true;$('adminQuickLink').hidden=true;}
+    }
+    async function loadAdminOrders(){
+      const host=$('adminOrders');$('adminMessage').textContent='Loading orders…';host.replaceChildren();
+      try{
+        const result=await adminListOrders({limit:75});const orders=result.data.orders||[];
+        if(!orders.length){$('adminMessage').textContent='No orders found yet.';return;}
+        $('adminMessage').textContent=`Showing ${orders.length} most recent orders.`;
+        orders.forEach(order=>{
+          const card=document.createElement('div');card.className='admin-order';
+          const heading=document.createElement('strong');heading.textContent=`${order.id} · ₹${Number(order.total).toLocaleString('en-IN')}`;
+          const details=document.createElement('p');details.textContent=`${order.customer.name||'Customer'} · ${order.customer.phone||''} · ${order.paymentMethod==='cod'?'COD':'Razorpay'} (${order.paymentStatus})`;
+          const address=document.createElement('p');address.textContent=[order.customer.address,order.customer.city,order.customer.state,order.customer.pin].filter(Boolean).join(', ');
+          const items=document.createElement('p');items.textContent=(order.items||[]).map(i=>`${i.name} / ${i.size} × ${i.qty}`).join(' | ');
+          const select=document.createElement('select');select.setAttribute('aria-label','Fulfilment status');
+          ['processing','packed','shipped','delivered','cancelled'].forEach(v=>{const opt=document.createElement('option');opt.value=v;opt.textContent=v.toUpperCase();select.append(opt);});
+          select.value=['processing','packed','shipped','delivered','cancelled'].includes(order.fulfillmentStatus)?order.fulfillmentStatus:'processing';
+          const save=document.createElement('button');save.type='button';save.textContent='UPDATE STATUS';
+          save.addEventListener('click',async()=>{save.disabled=true;$('adminMessage').textContent='Updating order…';try{await adminUpdateOrderFulfillment({orderId:order.id,fulfillmentStatus:select.value});$('adminMessage').textContent='Order fulfilment updated.';await loadAdminOrders();}catch(e){$('adminMessage').textContent=e.message||'Could not update order.';save.disabled=false;}});
+          card.append(heading,details,address,items,select,save);host.append(card);
+        });
+      }catch(e){$('adminMessage').textContent=e.message||'Admin order list is unavailable. Confirm admin claim and deploy Functions.';}
+    }
+    $('adminRefresh').addEventListener('click',loadAdminOrders);
+    $('checkoutForm').addEventListener('submit',async e=>{
+      e.preventDefault(); const user=auth.currentUser; const message=$('checkoutMessage'); const btn=$('placeOrderButton');
+      if(!user){message.textContent='Please sign in or create an account before placing your order.';openAccount();return;}
+      const cartItems=JSON.parse(localStorage.getItem('vozrikCart')||'[]');
+      if(!cartItems.length){message.textContent='Your bag is empty.';return;}
+      const paymentMethod=$('paymentMethod').value;
+      if(!paymentMethod){message.textContent='Please select a payment method.';return;}
+      const customer={name:$('checkoutName').value.trim(),phone:$('checkoutPhone').value.trim(),email:$('checkoutEmail').value.trim(),address:$('checkoutAddress').value.trim(),city:$('checkoutCity').value.trim(),state:$('checkoutState').value.trim(),pin:$('checkoutPin').value.trim()};
+      btn.disabled=true; message.textContent='Securing your order…';
+      try{
+        const items=cartItems.map(i=>({name:i.name,qty:i.qty,size:i.size}));
+        if(paymentMethod==='cod'){
+          const result=await placeCodOrder({items,customer}); const orderId=result.data.orderId;
+          localStorage.removeItem('vozrikCart'); $('orderConfirmation').hidden=false; $('orderConfirmation').innerHTML=`<span class="micro-label">ORDER RECEIVED</span><h3>Thank you for choosing VOZRIK.</h3><p>Your order ID is <strong>${orderId}</strong>.</p><p>Payment: Cash on Delivery</p><p>We will contact you if any delivery detail needs confirmation.</p>`;
+          message.textContent='Your COD order has been submitted.'; document.getElementById('cartItems').innerHTML='<p class="cart-empty">Your order has been placed.</p>'; document.getElementById('cartCount').textContent='0'; document.getElementById('cartSubtotal').textContent='₹0'; document.getElementById('cartTotal').textContent='₹0';
+          await loadCustomerOrders(user);
+        } else {
+          const result=await createRazorpayOrder({items,customer}); const d=result.data;
+          if(!window.Razorpay){await new Promise((resolve,reject)=>{const sc=document.createElement('script');sc.src='https://checkout.razorpay.com/v1/checkout.js';sc.onload=resolve;sc.onerror=reject;document.head.appendChild(sc);});}
+          const rz=new window.Razorpay({key:d.keyId,amount:d.amount,currency:'INR',name:'VOZRIK',description:'VOZRIK online order',order_id:d.razorpayOrderId,prefill:{name:customer.name,email:customer.email,contact:customer.phone},theme:{color:'#C5A059'},handler:async response=>{
+            try{const verified=await verifyRazorpayPayment({...response,orderId:d.orderId});localStorage.removeItem('vozrikCart');$('orderConfirmation').hidden=false;$('orderConfirmation').innerHTML=`<span class="micro-label">PAYMENT CONFIRMED</span><h3>Your VOZRIK order is confirmed.</h3><p>Order ID: <strong>${verified.data.orderId}</strong></p>`;message.textContent='Payment verified securely.';await loadCustomerOrders(user);}catch(err){message.textContent='Payment received by gateway but verification is pending. Contact support with your payment ID.';}
+          }});
+          rz.on('payment.failed',r=>{message.textContent='Payment was not completed. You can retry checkout.';}); rz.open(); message.textContent='Complete payment in the secure Razorpay window.';
+        }
+      }catch(err){message.textContent=err.message||'Order could not be submitted. Please try again or contact support.';}
+      finally{btn.disabled=false;}
+    });
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAccount();});
+  </script>
+
 </body>
 </html>
